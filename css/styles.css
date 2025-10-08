@@ -2,10 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 
-body{
+*{
     font-family: "Montserrat", sans-serif;
 }
-.app{    
+
+.app {
     width: 430px;
     height: 932px;
     background: linear-gradient(to bottom, #AD9B8D, #09080E);
@@ -13,11 +14,13 @@ body{
     border-radius: 30px;
     padding: 80px 40px 40px 40px;
 }
-.app .top-bar{
+
+.app .top-bar {
     display: flex;
     justify-content: space-between;
 }
-.app .top-bar button{
+
+.app .top-bar button {
     width: 53px;
     height: 53px;
     border-radius: 50%;
@@ -26,14 +29,16 @@ body{
     background: #0000003a;
 }
 
-.top-bar button i{
+.top-bar button i {
     font-size: 20px;
     color: white;
 }
-.top-bar h2{
+
+.top-bar h2 {
     color: white;
 }
-.app .cont-foto{
+
+.app .cont-foto {
     width: 311px;
     height: 311px;
     border-radius: 50%;
@@ -42,17 +47,65 @@ body{
     margin-top: 40px;
 }
 
-.app .titulo-cancion{
+.app .titulo-cancion {
     text-align: center;
     padding: 40px 0 0 0;
     color: white;
     font-weight: 400;
     font-size: 30px;
 }
-.app h3{
+
+.app h3 {
     color: white;
     text-align: center;
     font-weight: 400;
     font-size: 20px;
+
+}
+
+.progress-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 170px 0 0 0;
+}
+
+.progress-bar {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 3px;
+    background: #39383f;
+    outline: none;
+}
+
+/* Línea que ya ha sido “reproducida” */
+.progress-bar::-webkit-slider-runnable-track {
+    height: 4px;
+    background: linear-gradient(to right, #c7d24b var(--value, 25%), #333 0%);
     
+}
+
+/* Bolita del slider */
+.progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: #c7d24b;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: -6px;
+}
+
+
+
+
+
+
+/* !============= */
+
+.app .minutos{
+    display: flex;
+    justify-content: space-between;
+    color: white;
 }
