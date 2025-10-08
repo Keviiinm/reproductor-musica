@@ -41,6 +41,18 @@ body{
     margin: 0 auto;
     margin-top: 40px;
 }
-.app h2, .app h3{
+
+.app .titulo-cancion{
+    text-align: center;
+    padding: 40px 0 0 0;
     color: white;
+    font-weight: 400;
+    font-size: 30px;
+}
+.app h3{
+    color: white;
+    text-align: center;
+    font-weight: 400;
+    font-size: 20px;
+    
 }
