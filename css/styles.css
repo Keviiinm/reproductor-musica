@@ -42,7 +42,7 @@
     width: 311px;
     height: 311px;
     border-radius: 50%;
-    border: 2px solid #AD9B8D;
+    
     margin: 0 auto;
     margin-top: 40px;
 }
@@ -81,7 +81,7 @@
 /* Línea que ya ha sido “reproducida” */
 .progress-bar::-webkit-slider-runnable-track {
     height: 4px;
-    background: linear-gradient(to right, #c7d24b var(--value, 25%), #333 0%);
+    background: linear-gradient(to right, #c4da47 var(--value, 25%), #333 0%);
     
 }
 
@@ -106,6 +106,43 @@
 
 .app .minutos{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between;    
+}
+.app .minutos p{
     color: white;
+    font-size: 15px;
+}
+.app .botones{
+    display: flex;
+    justify-content: space-between;
+}
+
+.app button{
+    border: none;
+    font-size: 25px;
+    background: transparent;
+    color: white;
+}
+.app .btn2{
+    width: 63px;
+    height: 63px;
+    background: #1c1b29;
+    border-radius: 50%;
+}
+.app .btn3{
+    width: 75px;
+    height: 75px;
+    color: black;
+    font-size: 40px;
+    background: #c4da47;
+    border-radius: 50%;
+}
+
+.app .cont-foto img{
+    width: 311px;
+    height: 311px;
+    border-radius: 50%;
+    
+    
+    
 }
