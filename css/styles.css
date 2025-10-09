@@ -15,6 +15,9 @@
     padding: 80px 40px 40px 40px;
 }
 
+.app .arrow i{
+    font-size: 30px;
+}
 .app .top-bar {
     display: flex;
     justify-content: space-between;
@@ -29,7 +32,7 @@
     background: #0000003a;
 }
 
-.top-bar button i {
+.top-bar button i{
     font-size: 20px;
     color: white;
 }
@@ -60,7 +63,6 @@
     text-align: center;
     font-weight: 400;
     font-size: 20px;
-
 }
 
 .progress-container {
@@ -98,11 +100,6 @@
 }
 
 
-
-
-
-
-/* !============= */
 
 .app .minutos{
     display: flex;
@@ -142,7 +139,5 @@
     width: 311px;
     height: 311px;
     border-radius: 50%;
-    
-    
-    
+    background-repeat: no-repeat;
 }
