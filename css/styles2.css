@@ -1,0 +1,69 @@
+/* 1 tipografías */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* 2. configuraciones generales */
+* {
+    font-family: "Montserrat", sans-serif;
+}
+
+/* 3. css */
+.ingresar {
+    position: relative;
+    overflow: hidden;
+    width: 430px;
+    height: 932px;
+    margin: 0 auto;
+    padding: 80px 40px 40px 40px;
+    border-radius: 30px;
+}
+
+.ingresar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url(../imgs/logo.png) no-repeat center center/cover;
+    filter: blur(10px) brightness(0.6);
+    transform: scale(1.1);
+    z-index: 0;
+}
+
+.ingresar::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, #000 100%);
+    z-index: 0;
+}
+
+.ingresar * {
+    position: relative;
+    z-index: 1;
+}
+
+.ingresar .cont-foto {
+    width: 311px;
+    height: 311px;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-top: 40px;
+    border: 2px solid aqua;
+}
+
+.ingresar .cont-foto img {
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+}
+
+.ingresar a {
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 200px;
+    background: #000;
+    padding: 10px 20px 10px 20px;
+    color: #fff;
+    margin-left: 155px;
+    border-radius: 20px;
+}

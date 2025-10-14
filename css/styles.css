@@ -1,23 +1,28 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+/* 1 tipografías */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* 2. iconos */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
 
-*{
+/* 3. configuraciones generales */
+* {
     font-family: "Montserrat", sans-serif;
 }
 
+/* 4. Variables */
+:root {
+  --fondo-caratula: url();
+}
+
+/* 4. Css del reproductor */
 .app {
     width: 430px;
     height: 932px;
-    background: linear-gradient(to bottom, #AD9B8D, #09080E);
     margin: 0 auto;
-    border-radius: 30px;
     padding: 80px 40px 40px 40px;
+    border-radius: 30px;
 }
 
-.app .arrow i{
-    font-size: 30px;
-}
 .app .top-bar {
     display: flex;
     justify-content: space-between;
@@ -27,117 +32,166 @@
     width: 53px;
     height: 53px;
     border-radius: 50%;
-    border: none;
-    color: white;
     background: #0000003a;
+    border: none;
 }
 
-.top-bar button i{
+.top-bar button i {
     font-size: 20px;
-    color: white;
+    color: #fff;
 }
 
 .top-bar h2 {
-    color: white;
+    font-size: 20px;
+    padding: 15px 0 0 0;
+    color: #fff;
 }
 
 .app .cont-foto {
     width: 311px;
     height: 311px;
     border-radius: 50%;
-    
     margin: 0 auto;
     margin-top: 40px;
+}
+
+.app .cont-foto img {
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-repeat: no-repeat;
 }
 
 .app .titulo-cancion {
     text-align: center;
     padding: 40px 0 0 0;
-    color: white;
     font-weight: 400;
+    color: #fff;
     font-size: 30px;
 }
 
 .app h3 {
-    color: white;
     text-align: center;
-    font-weight: 400;
     font-size: 20px;
+    font-weight: 400;
+    color: #fff;
 }
 
 .progress-container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 170px 0 0 0;
+  width: 100%;
+  margin: 0 auto;
+  padding: 176px 0 0 0;
 }
 
+/* Línea de fondo */
 .progress-bar {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 3px;
-    background: #39383f;
-    outline: none;
+  -webkit-appearance: none; /* quita el estilo por defecto */
+  appearance: none;
+  width: 100%;
+  height: 3px; 
+  background: #39383f; 
+  outline: none;
+  overflow: visible;
 }
 
 /* Línea que ya ha sido “reproducida” */
 .progress-bar::-webkit-slider-runnable-track {
-    height: 4px;
-    background: linear-gradient(to right, #c4da47 var(--value, 25%), #333 0%);
-    
+  height: 4px;
+  background: linear-gradient(to right, #c7d24b var(--value, 25%), #333 0%);
 }
 
 /* Bolita del slider */
 .progress-bar::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 16px;
-    height: 16px;
-    background: #c7d24b;
-    border-radius: 50%;
-    cursor: pointer;
-    margin-top: -6px;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #c4da47; /* color de la bolita */
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -6px; /* centra la bolita verticalmente */
 }
 
-
-
-.app .minutos{
-    display: flex;
-    justify-content: space-between;    
-}
-.app .minutos p{
-    color: white;
-    font-size: 15px;
-}
-.app .botones{
+.app .minutos {
     display: flex;
     justify-content: space-between;
 }
 
-.app button{
+.app .minutos p {
+    color: #fff;
+    padding: 7px 0 0 0;
+    font-size: 14px;
+}
+
+.app .botones {
+    display: flex;
+    justify-content: space-between;
+}
+
+.app .botones .btn1 {
     border: none;
     font-size: 25px;
     background: transparent;
-    color: white;
-}
-.app .btn2{
-    width: 63px;
-    height: 63px;
-    background: #1c1b29;
-    border-radius: 50%;
-}
-.app .btn3{
-    width: 75px;
-    height: 75px;
-    color: black;
-    font-size: 40px;
-    background: #c4da47;
-    border-radius: 50%;
+    color: #fff;
 }
 
-.app .cont-foto img{
-    width: 311px;
-    height: 311px;
+.app .botones .btn2 {
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
-    background-repeat: no-repeat;
+    border: none;
+    background: #1c1b29;
+    color: #fff;
+    font-size: 25px;
 }
+
+.app .botones .btn3 {
+    width: 53px;
+    height: 53px;
+    border-radius: 50%;
+    border: none;
+    background: #c4da47;
+    font-size: 35px;
+}
+
+/*  Fondo difuminado sutil arriba y degradado oscuro abajo */
+.app {
+  position: relative;
+  overflow: hidden;
+}
+
+/* *Fondo con leve blur solo arriba */
+.app::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--fondo-caratula) no-repeat center center/cover;
+  filter: blur(10px) brightness(0.6);
+  transform: scale(1.1);
+  z-index: 0;
+}
+
+/* *Degradado negro que cubre desde la mitad hacia abajo */
+.app::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, #000 100%);
+  z-index: 0;
+}
+
+/* Todo el contenido va encima */
+.app * {
+  position: relative;
+  z-index: 1;
+}
+
+#btn-shuffle.activo {
+    color: #1DB954;
+    transform: scale(1.1);
+    transition: all 0.2s ease;
+}
+
+
+
