@@ -40,8 +40,8 @@
         "nombre": "Las Tetas de mi Madre",
         "artista": "Crack Family",
         "duracion": "03:33",
-        "caratula": "./imgs/lastetasdemimadre.jpg",
-        "imagenFondo": "imgs/lastetasdemimadre.jpg",
+        "caratula": "imgs/lastetasdemimadre.jpg",
+        "imagenFondo": "../imgs/lastetasdemimadre.jpg",
         "cancion": "canciones/lastetasdemimadre.mp3"
     },
     {
@@ -68,7 +68,7 @@
         "artista": "Calle 13",
         "duracion": "03:11",
         "caratula": "imgs/muerteenhawai.jpg",
-        "imagenFondo": "imgs/muerteenhawai.jpg",
+        "imagenFondo": "../imgs/muerteenhawai.jpg",
         "cancion": "canciones/muerteenhawai.mp3"
     },
     {
