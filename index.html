@@ -15,7 +15,7 @@
 
     <div class="app">
         <div class="top-bar">
-            <button><i class="bi bi-arrow-left"></i></button>
+            <a href="ingresar.html"><i class="bi bi-arrow-left"></i></a>
             <h2>Now Playing</h2>
             <button><i class="bi bi-heart"></i></button>
         </div>
@@ -28,12 +28,12 @@
         <h3 id="nombre-artista"></h3>
 
         <div class="progress-container">
-            <input id="progress" type="range" min="0" max="100" value="25" class="progress-bar">
+            <input id="progress" type="range" min="0" max="100" value="" class="progress-bar">
         </div>
 
         <div class="minutos">
-            <p id="inicio">0:28</p>
-            <p id="fin">-2:15</p>
+            <p id="inicio"></p>
+            <p id="fin"></p>
         </div>
 
         <div class="botones">
@@ -43,18 +43,29 @@
             <button id="btn-siguiente" class="btn2"><i class="bi bi-skip-end-fill"></i></button>
             <button id="btn-lista" class="btn1"><i class="bi bi-music-note-list"></i></button>
         </div>
+
+        <div id="contenedor-lista" class="cont-lista">
+
+            <div class="top-bar">
+                <button id="btn-regreso"><i class="bi bi-arrow-left"></i></button>
+                <h2>My music</h2>
+                <button><i class="bi bi-three-dots"></i></button>
+            </div>
+
+            <div id="contenedor-canciones" class="cont-canciones">
+
+            </div>
+        </div>
     </div>
+
+
 
     <audio id="audio" src=""></audio>
 
-
-
-
-    <script src="js/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-
+    <script src="js/app.js"></script>
 </body>
 
 </html>
