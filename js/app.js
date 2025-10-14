@@ -1,3 +1,4 @@
+// *VARIABLES GLOBALES
 const fondo = document.querySelector('.app')
 const contCaratula = document.getElementById('contenedor-caratula');
 const titulo = document.getElementById('titulo-cancion');
@@ -15,12 +16,13 @@ const btnLista = document.getElementById('btn-lista');
 const contenedorLista = document.getElementById('contenedor-lista');
 const botonListaRegreso = document.getElementById('btn-regreso');
 
+// *VARIABLES QUE NO CAMBIAN
 let canciones = []
 let indiceActual = 0
 let reproduciendo = false
 let aleatorio = false
 
-
+// *SE INVOCA EL .JSON CON EL EVENTO DE ESCUCHA
 document.addEventListener('DOMContentLoaded', () => {
     fetch("json/canciones.json")
 
@@ -30,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             canciones = data
 
             mostrarCanciones(indiceActual)
-            // INICIALIZAMOS EL SRC AQUÍ PARA PODER USARLO EN EL BOTÓN DE REPRODUCIR
+            // *aqui iniciamos el src para poder usarlo en el reproductor
             audio.setAttribute('src', canciones[indiceActual].cancion)
 
             mostrarCancionesEnLista()
@@ -44,22 +46,21 @@ document.addEventListener('DOMContentLoaded', () => {
 function mostrarCanciones(indice) {
     const cancion = canciones[indice]
 
-    // ESTO SE USA PARA MODIFICAR UNA VARIABLE CSS DESDE JAVASCRIPT
+    // *ponemos esto para modificar una variable en css, el fondo cambia segun la caratula de la cancion
     fondo.style.setProperty('--fondo-caratula', `url('${cancion.caratula}')`)
 
     contCaratula.innerHTML = `
         <img src="${cancion.caratula}"  alt="${cancion.nombre}">
     `
-
     titulo.textContent = cancion.nombre
     artista.textContent = cancion.artista
 }
 
 btnAleatorio.addEventListener('click', () => {
-    // ESTO LO HACEMOS PARA ALTERNAR EL ESTADO DEL BOOLEANO AL DAR CLICK
+    // *esto es para alternar el estado del boleano, por defecto esta desactivado
     aleatorio = !aleatorio
 
-    if (aleatorio) {
+    if (aleatorio) { 
         btnAleatorio.classList.add('active');
     }
     else {
@@ -67,11 +68,12 @@ btnAleatorio.addEventListener('click', () => {
     }
 })
 
+// *boton de cancion anterior
 btnPrev.addEventListener('click', () => {
     if (aleatorio) {
-        // MATH.RANDOM LO QUE HACE ES DAR UN NÚMERO ALEATORIO ENTRE 0 Y 1 0 INCLIDO Y 1 EXCLUIDO, AL MULTIPLICARLO POR LA LONGITUD DEL ARREGLO LO QUE HACE ES QUE DA UN NÚMERO ENTRE 0 Y LA LONGITUD TOTAL DE LAS CANCIONES, Y EL MATH.FLOOR LO QUE HACE ES REDONDEAR HACIA ABAJO, HACIA EL ENTERO MÁS CERCANO PARA ASÍ DAR UN ÍNDICE VÁLIDO. EJEMPLO: SI ÍNDICE ALEATORIO DIÓ 4.20 EL MATH.FLOOR LO REDONDEA A 4. UNA VEZ SABIENDO TODO ESTO, DENTRO DEL CONDICIONAL LE DECIMOS QUE SI LA VARIABLE BOOLEANA ESTÁ ACTIVA ENTONCES SE ACTIVE LO DEL ÍNDICE ALEATORIO Y SI NO, SE EJECUTE NORMAL EL PROCESO.
+        // *funcion math.random = numero aleatorio recorriendo las canciones que haya
         const indiceAleatorio = Math.floor(Math.random() * (canciones.length));
-        // GUARDAMOS EN LA VARIABLE INDICEACTUAL EL VALOR ALEATORIO QUE SE GUARDA EN LA VARIABLE INDICE ALEATORIO
+        
         indiceActual = indiceAleatorio;
     }
     else {
@@ -86,26 +88,26 @@ btnPrev.addEventListener('click', () => {
 
     mostrarCanciones(indiceActual);
 
-    // REPRODUCIMOS LA CANCIÓN DESPUES DE ACTUALIZAR EL ÍNDICE O SI NO SE REPRODUCE LA CANCIÓN ANTERIOR EN EL ARREGLO AL CAMBIAR AL BOTÓN ANTERIOR
+    // *REPRODUCIMOS LA CANCIÓN DESPUES DE ACTUALIZAR EL ÍNDICE O SI NO SE REPRODUCE LA CANCIÓN ANTERIOR EN EL ARREGLO AL CAMBIAR AL BOTÓN ANTERIOR
     const cancion = canciones[indiceActual]
 
-    // CAMBIAMOS LA CANCIÓN
+    // *se cambia la cancion
     audio.setAttribute('src', cancion.cancion);
 
     audio.play()
 
     btnReproducirPausar.innerHTML = '<i class="bi bi-pause-fill"></i>'
 
-    // MANTENEMOS EL BOOLEANO EN TRUE PARA QUE NO IMPORTE SI LA CANCIÓN ESTÁ PAUSADA O NO, SE REPRODUZCA SIEMPRE LA SIGUIENTE AL PRESIONAR EL BOTÓN DE NEXT
+    // *mantenemos el booleano en true para que no importe si la canción está pausada o no, se reproduzca siempre la siguiente al presionar el botón de next
     reproduciendo = true
 })
 
 btnNext.addEventListener('click', () => {
-    // HACER LA FUNCIONALIDAD PARA LAS CANCIONES ALEATORIAS
+    // *hacer la funcionalidad para las canciones aleatorias
     if (aleatorio) {
-        // MATH.RANDOM LO QUE HACE ES DAR UN NÚMERO ALEATORIO ENTRE 0 Y 1 0 INCLIDO Y 1 EXCLUIDO, AL MULTIPLICARLO POR LA LONGITUD DEL ARREGLO LO QUE HACE ES QUE DA UN NÚMERO ENTRE 0 Y LA LONGITUD TOTAL DE LAS CANCIONES, Y EL MATH.FLOOR LO QUE HACE ES REDONDEAR HACIA ABAJO, HACIA EL ENTERO MÁS CERCANO PARA ASÍ DAR UN ÍNDICE VÁLIDO. EJEMPLO: SI ÍNDICE ALEATORIO DIÓ 4.20 EL MATH.FLOOR LO REDONDEA A 4. UNA VEZ SABIENDO TODO ESTO, DENTRO DEL CONDICIONAL LE DECIMOS QUE SI LA VARIABLE BOOLEANA ESTÁ ACTIVA ENTONCES SE ACTIVE LO DEL ÍNDICE ALEATORIO Y SI NO, SE EJECUTE NORMAL EL PROCESO.
+        
         const indiceAleatorio = Math.floor(Math.random() * (canciones.length));
-        // GUARDAMOS EN LA VARIABLE INDICEACTUAL EL VALOR ALEATORIO QUE SE GUARDA EN LA VARIABLE INDICE ALEATORIO
+        // *guardamos en la variable indiceactual el valor aleatorio que se guarda en la variable indice aleatorio
         indiceActual = indiceAleatorio;
     }
     else {
@@ -119,22 +121,22 @@ btnNext.addEventListener('click', () => {
     }
     mostrarCanciones(indiceActual);
 
-    // REPRODUCIMOS LA CANCIÓN DESPUES DE ACTUALIZAR EL ÍNDICE O SI NO SE REPRODUCE LA CANCIÓN ANTERIOR EN EL ARREGLO AL CAMBIAR AL BOTÓN SEGUIENTE
+    // *reproducimos la canción despues de actualizar el índice o si no se reproduce la canción anterior en el arreglo al cambiar al botón seguiente
     const cancion = canciones[indiceActual]
 
-    // CAMBIAMOS LA CANCIÓN
+    // *Cambia la cancion
     audio.setAttribute('src', cancion.cancion);
 
     audio.play()
 
     btnReproducirPausar.innerHTML = '<i class="bi bi-pause-fill"></i>'
 
-    // MANTENEMOS EL BOOLEANO EN TRUE PARA QUE NO IMPORTE SI LA CANCIÓN ESTÁ PAUSADA O NO, SE REPRODUZCA SIEMPRE LA SIGUIENTE AL PRESIONAR EL BOTÓN DE NEXT
+    // *mantenemos el booleano en true para que no importe si la canción está pausada o no, se reproduzca siempre la siguiente al presionar el botón de next
     reproduciendo = true
 })
 
 btnReproducirPausar.addEventListener('click', () => {
-    // ACÁ NO INICIALIZAMOS LA CANCIÓN PARA QUE AL PAUSAR Y LUEGO VOLVER A REPRODUCIR SE REANUDE DESDE EL PUNTO QUE SE PAUSO POR ESO SE DECLARA DENTRO DEL FETCH DATA
+    // *acá no inicializamos la canción para que al pausar y luego volver a reproducir se reanude desde el punto que se pauso por eso se declara dentro del fetch data
     if (reproduciendo) {
         audio.pause()
         btnReproducirPausar.innerHTML = '<i class="bi bi-play-fill"></i>'
@@ -151,49 +153,44 @@ btnLista.addEventListener('click', () => {
     contenedorLista.classList.add('active2');
 })
 
-// SINCRONIZAR LA BARRA DE PROGRESO CON EL AUDIO DE LA CANCIÓN
-// timeupdate ES UN EVENTO QUE SE DISPARA CUANDO SE ESTÁ REPRODUCIENDO LA CANCIÓN ES PROPIO DE LA ETIQUETA AUDIO
+// *sincronizar la barra de progreso con el audio de la canción
+// *timeupdate es un evento que se dispara cuando se está reproduciendo la canción es propio de la etiqueta audio
 audio.addEventListener('timeupdate', () => {
-    // 1. OBTENEMOS CUANTO TIEMPO LLEVA REPRODUCIDO EL AUDIO
+
+    // *1. obtenemos cuanto tiempo lleva reproducido el audio
     audio.currentTime;
 
-    // 2. OBTENEMOS LA DURACIÓN TOTAL DE LA CANCIÓN
+    // *2. OBTENEMOS LA DURACIÓN TOTAL DE LA CANCIÓN
     audio.duration
 
-    // 3. CALCULAMOS EL PORCENTAJE DE PROGRESO, DIVIDIENDO EL TIEMPO ACTUAL POR LA DURACIÓN TOTAL DE LA CANCIÓN Y MULTIPLICANDO POR 100 Y LO GUARDAMOS EN UNA VARIABLE
+    // *3. calculamos el porcentaje de progreso, dividiendo el tiempo actual por la duración total de la canción y multiplicando por 100 y lo guardamos en una variable
 
     let porcentaje = 0
 
-    // 4. ACÁ DECIMOS QUE SI LA DURACIÓN TOTAL DE LA CANCIÓN ES 0 ENTONCES SE EJECUTE LA OPERACIÓN PARA ACTUALIZAR LA BARRA DE PROGRESO Y EL MOVIMIENTO DE LA BOLITA LO MULTIPLICAMOS ENTRE 100 PARA QUE SE VUELVA PORCENTAJE
+    // *4. acá decimos que si la duración total de la canción es 0 entonces se ejecute la operación para actualizar la barra de progreso y el movimiento de la bolita lo multiplicamos entre 100 para que se vuelva porcentaje
     if (audio.duration) {
         porcentaje = audio.currentTime / audio.duration * 100
     }
 
-    // 5. VAMOS A ACTUALIZAR LA BARRA AMARILLA JUNTO CON LA BOLITA, IMPORTANTE AGREGAR EL % PARA QUE EL GRADIENT DE LA BARRA LO INTERPRETE CORRECTAMENTE
+    // *5. vamos a actualizar la barra amarilla junto con la bolita, importante agregar el % para que el gradient de la barra lo interprete correctamente
     barraDeProgreso.style.setProperty('--value', `${porcentaje}%`)
 
-    // 6. LE ASIGNAMOS EL VALOR GUARDADO EN PORCENTAJE A LA BARRA DE PROGRESO
+    // *6. le asignamos el valor guardado en porcentaje a la barra de progreso
     barraDeProgreso.value = porcentaje
 
-    // 7. MOVEMOS DINÁMICAMENTE LOS SEGUNDOS
-    // 7.1 ESTA VARIABLE TIEMPO RESTANTE ES PARA QUE LOS MINUTOS Y SEGUNDOS TOTALES SE VAYAN RESTANDO CUANDO LA DURACIÓN ACTUAL DE LA CANCIÓN VAYA INCREMENTANDOSE
+    // *7. movemos dinámicamente los segundos
 
     if (audio.duration) {
         let tiempoRestante = audio.duration - audio.currentTime;
 
-        // 7.2 MOSTRAMOS LOS MINUTOS Y SEGUNDOS
-        // 7.3 MINUTOSACTUAL Y SEGUNDOSACTUAL SON LOS MINUTOS Y SEGUNDOS DE LA IZQUIERDA
-        // MATH.FLOOR SIRVE PARA REDONDEAR UN NÚMERO DECIMAL A ENTERO
-        // LA OPERACIÓN CON EL % LO QUE ESTÁ HACIENDO ES TOMAR EL RESTANTE DE LA DIVISIÓN ES DECIR SI LA DIVISIÓN DIÓ 1.05 LO QUE HACE EL % ES TOMAR EL .05 ENTONCES EL % TOMA LOS SEGUNDOS DE LA CANCIÓN
+        
         let minutosActual = Math.floor(audio.currentTime / 60);
         let segundosActual = Math.floor(audio.currentTime % 60);
-        // 7.4 MINUTOSTOTAL Y SEGUNDOSTOTAL SON LOS MINUTOS Y SEGUNDOS DE LA DERECHA
-        // MATH.FLOOR SIRVE PARA REDONDEAR UN NÚMERO DECIMAL A ENTERO
-        // LA OPERACIÓN CON EL % LO QUE ESTÁ HACIENDO ES TOMAR EL RESTANTE DE LA DIVISIÓN ES DECIR SI LA DIVISIÓN DIÓ 1.05 LO QUE HACE EL % ES TOMAR EL .05 ENTONCES EL % TOMA LOS SEGUNDOS DE LA CANCIÓN
+        
         let minutosTotal = Math.floor(tiempoRestante / 60);
         let segundosTotal = Math.floor(tiempoRestante % 60);
 
-        // 8. SI LOS SEGUNDOS SON MENORES QUE 10, AGREGAMOS UN 0 AL FRENTE
+        // *8. si los segundos son menores que 10, agregamos un 0 al frente
         if (segundosActual < 10) {
             segundosActual = "0" + segundosActual;
         }
@@ -202,23 +199,23 @@ audio.addEventListener('timeupdate', () => {
             segundosTotal = "0" + segundosTotal
         }
 
-        // 9. MOSTRAR LOS TIEMPOS EN PANTALLA
+        // *9. mostrar los tiempos en pantalla
         inicio.textContent = minutosActual + ":" + segundosActual;
         fin.textContent = "-" + minutosTotal + ":" + segundosTotal;
     }
 })
 
-// HACER UNA FUNCIÓN PARA QUE AL MOVER LA BOLITA DE LA BARRA LA CANCIÓN SE ACTUALICE AL PUNTO EXACTO
+// *hacer una función para que al mover la bolita de la barra la canción se actualice al punto exacto
 barraDeProgreso.addEventListener('input', () => {
-    // TOMAMOS EL VALOR ACTUAL DE LA BARRA CON EL .VALUE QUE ES UN INPUT
+    // *tomamos el valor actual de la barra con el .value que es un input
     barraDeProgreso.value;
-    // DECLARAMOS UNA VARIABLE INICIALIZADA EN 0 PARA GUARDAR EL RESULTADO DE MULTIPLICAR Y EL VALOR ACTUAL DE LA BARRA POR LA DURACIÓN REAL DE LA CANCIÓN DIVIDO POR 100 MULTIPLICAMOS Y DIVIMOS ENTRE 100 PARA PASAR UN VALOR PORCENTUAL A SEGUNDOS REALES
+    // *declaramos una variable inicializada en 0 para guardar el resultado de multiplicar y el valor actual de la barra por la duración real de la canción divido por 100 multiplicamos y divimos entre 100 para pasar un valor porcentual a segundos reales
     let nuevoTiempo = 0
 
-    // GUARDAMOS EL RESULTADO EN LA VARIABLE
+    // *guardamos el resultado en la variable
     nuevoTiempo = (barraDeProgreso.value * audio.duration) / 100;
 
-    // GUARDAMOS EN EL TIEMPO TRANSCURRIDO LA VARIABLE CON EL RESULTADO PARA ASÍ TERMINAR LA FUNCIÓN
+    // *guardamos en el tiempo transcurrido la variable con el resultado para así terminar la función
     audio.currentTime = nuevoTiempo;
 })
 
@@ -248,23 +245,23 @@ function mostrarCancionesEnLista() {
         boton.innerHTML = '<i class="bi bi-play-fill"></i>'
         boton.addEventListener('click', () => {
 
-            // cambiamos el índice actual
+            // *cambiamos el índice actual
             indiceActual = indice;
 
-            // mostramos los datos de esa canción (nombre, artista, carátula, fondo)
+            // *mostramos los datos de esa canción (nombre, artista, carátula, fondo)
             mostrarCanciones(indiceActual);
 
-            // cambiamos la fuente del audio a la canción seleccionada
+            // *cambiamos la fuente del audio a la canción seleccionada
             audio.setAttribute('src', cancion.cancion);
 
-            // reproducimos la canción
+            // *reproducimos la canción
             audio.play();
 
-            // actualizamos los íconos de reproducción
+            // *actualizamos los íconos de reproducción
             boton.innerHTML = '<i class="bi bi-pause-fill"></i>';
             btnReproducirPausar.innerHTML = '<i class="bi bi-pause-fill"></i>';
 
-            // cambiamos el estado
+            // *cambiamos el estado
             reproduciendo = true;
 
             contenedorLista.classList.remove('active2')
