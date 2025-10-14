@@ -4,71 +4,71 @@
         "nombre": "Blinding Lights",
         "artista": "The Weeknd",
         "duracion": "03:23",
-        "caratula": "imgs/weeken.jpg",
-        "cancion": "../canciones/blinding weeken.mp3"
+        "caratula": "./imgs/weeken.jpg",
+        "cancion": "./canciones/blinding weeken.mp3"
     },
     {
         "id": 2,
         "nombre": "Sabes una Cosa",
         "artista": "Luis Miguel",
         "duracion": "03:17",
-        "caratula": "imgs/sabesunacosa.jpg",
-        "cancion": "../canciones/sabesUnaCosa.mp3"
+        "caratula": "./imgs/sabesunacosa.jpg",
+        "cancion": "./canciones/sabesUnaCosa.mp3"
     },
     {
         "id": 3,
         "nombre": "Birds of a Feather",
         "artista": "Billie Eilish",
         "duracion": "03:31",
-        "caratula": "imgs/billie.jpg",
-        "cancion": "../canciones/billiecancion.mp3"
+        "caratula": "./imgs/billie.jpg",
+        "cancion": "./canciones/billiecancion.mp3"
     },
     {
         "id": 4,
         "nombre": "Su Nombre en mi Cuaderno",
         "artista": "Makano",
         "duracion": "03:24",
-        "caratula": "imgs/sunombrenmicua.jpg",
-        "cancion": "../canciones/sunombrenmi.mp3"
+        "caratula": "./imgs/sunombrenmicua.jpg",
+        "cancion": "./canciones/sunombrenmi.mp3"
     },
     {
         "id": 5,
         "nombre": "Las Tetas de mi Madre",
         "artista": "Crack Family",
         "duracion": "03:33",
-        "caratula": "imgs/lastetasdemimadre.jpg",
-        "cancion": "../canciones/lastetasdemimadre.mp3"
+        "caratula": "./imgs/lastetasdemimadre.jpg",
+        "cancion": "./canciones/lastetasdemimadre.mp3"
     },
     {
         "id": 6,
         "nombre": "Mis Ojos Lloran Por Ti",
         "artista": "Big Boy",
         "duracion": "04:55",
-        "caratula": "imgs/misojsolloranporti.jpg",
-        "cancion": "../canciones/misojsolloranporti.mp3"
+        "caratula": "./imgs/misojsolloranporti.jpg",
+        "cancion": "./canciones/misojsolloranporti.mp3"
     },
     {
         "id": 7,
         "nombre": "Par de Pepas",
         "artista": "Doble Porción, Mañas Ru-Fino, Métricas Frías",
         "duracion": "02:33",
-        "caratula": "imgs/pardepepas.jpg",
-        "cancion": "../canciones/pardepepas.mp3"
+        "caratula": "./imgs/pardepepas.jpg",
+        "cancion": "./canciones/pardepepas.mp3"
     },
     {
         "id": 8,
         "nombre": "Muerte en Hawaii",
         "artista": "Calle 13",
         "duracion": "03:11",
-        "caratula": "imgs/muerteenhawai.jpg",
-        "cancion": "../canciones/muerteenhawai.mp3"
+        "caratula": "./imgs/muerteenhawai.jpg",
+        "cancion": "./canciones/muerteenhawai.mp3"
     },
     {
         "id": 9,
         "nombre": "Lo que más Importa",
         "artista": "Alka Produce, Penyair, Realidad Mental",
         "duracion": "03:34",
-        "caratula": "imgs/loquemasimporta.jpg",
-        "cancion": "../canciones/loquemasimporta.mp3"
+        "caratula": "./imgs/loquemasimporta.jpg",
+        "cancion": "./canciones/loquemasimporta.mp3"
     }
 ]
