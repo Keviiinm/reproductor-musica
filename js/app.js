@@ -24,7 +24,7 @@ let aleatorio = false
 
 // *SE INVOCA EL .JSON CON EL EVENTO DE ESCUCHA
 document.addEventListener('DOMContentLoaded', () => {
-    fetch("json/canciones.json")
+    fetch("../json/canciones.json")
 
         .then(response => response.json())
 
