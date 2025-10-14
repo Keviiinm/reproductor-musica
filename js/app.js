@@ -208,3 +208,79 @@ audio.addEventListener('timeupdate', () => {
     }
 })
 
+// HACER UNA FUNCIÓN PARA QUE AL MOVER LA BOLITA DE LA BARRA LA CANCIÓN SE ACTUALICE AL PUNTO EXACTO
+barraDeProgreso.addEventListener('input', () => {
+    // TOMAMOS EL VALOR ACTUAL DE LA BARRA CON EL .VALUE QUE ES UN INPUT
+    barraDeProgreso.value;
+    // DECLARAMOS UNA VARIABLE INICIALIZADA EN 0 PARA GUARDAR EL RESULTADO DE MULTIPLICAR Y EL VALOR ACTUAL DE LA BARRA POR LA DURACIÓN REAL DE LA CANCIÓN DIVIDO POR 100 MULTIPLICAMOS Y DIVIMOS ENTRE 100 PARA PASAR UN VALOR PORCENTUAL A SEGUNDOS REALES
+    let nuevoTiempo = 0
+
+    // GUARDAMOS EL RESULTADO EN LA VARIABLE
+    nuevoTiempo = (barraDeProgreso.value * audio.duration) / 100;
+
+    // GUARDAMOS EN EL TIEMPO TRANSCURRIDO LA VARIABLE CON EL RESULTADO PARA ASÍ TERMINAR LA FUNCIÓN
+    audio.currentTime = nuevoTiempo;
+})
+
+function mostrarCancionesEnLista() {
+
+    canciones.forEach((cancion, indice) => {
+        const fila = document.createElement('div');
+        fila.classList.add('fila');
+
+        const contImg = document.createElement('div');
+        contImg.classList.add('cont-img');
+
+        const img = document.createElement('img');
+        img.setAttribute('src', cancion.caratula);
+        img.setAttribute('alt', cancion.nombre);
+
+        const contInfo = document.createElement('div');
+        contInfo.classList.add('cont-info');
+
+        const h3 = document.createElement('h3');
+        h3.textContent = cancion.nombre;
+
+        const h4 = document.createElement('h4');
+        h4.textContent = cancion.artista
+
+        const boton = document.createElement('button');
+        boton.innerHTML = '<i class="bi bi-play-fill"></i>'
+        boton.addEventListener('click', () => {
+
+            // cambiamos el índice actual
+            indiceActual = indice;
+
+            // mostramos los datos de esa canción (nombre, artista, carátula, fondo)
+            mostrarCanciones(indiceActual);
+
+            // cambiamos la fuente del audio a la canción seleccionada
+            audio.setAttribute('src', cancion.cancion);
+
+            // reproducimos la canción
+            audio.play();
+
+            // actualizamos los íconos de reproducción
+            boton.innerHTML = '<i class="bi bi-pause-fill"></i>';
+            btnReproducirPausar.innerHTML = '<i class="bi bi-pause-fill"></i>';
+
+            // cambiamos el estado
+            reproduciendo = true;
+
+            contenedorLista.classList.remove('active2')
+        })
+
+        contenedorCanciones.appendChild(fila);
+
+        fila.appendChild(contImg);
+        fila.appendChild(contInfo);
+        fila.appendChild(boton);
+        contImg.appendChild(img);
+        contInfo.appendChild(h3);
+        contInfo.appendChild(h4);
+    })
+}
+
+botonListaRegreso.addEventListener('click', () => {
+    contenedorLista.classList.remove('active2');
+})

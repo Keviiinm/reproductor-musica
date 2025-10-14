@@ -208,3 +208,102 @@
   z-index: 1;
 }
 
+.cont-lista {
+  position: absolute;
+  right: -450px;
+  top: 0;
+  z-index: 1;
+  width: 430px;
+  height: 932px;
+  padding: 80px 40px 40px 40px;
+  border-radius: 30px;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* evita desbordes visuales */
+  transition: .5s;
+}
+
+.cont-canciones {
+  flex: 1;
+  max-height: 100%;
+  /* asegura que use el alto restante */
+  overflow-y: auto;
+  /* el scroll aparecerá si hay muchas canciones */
+}
+
+.cont-canciones::-webkit-scrollbar {
+  width: 6px;
+  /* ancho del scroll */
+}
+
+.cont-canciones::-webkit-scrollbar-thumb {
+  background-color: #1c1b29;
+  /* color del scroll */
+  border-radius: 10px;
+}
+
+.cont-canciones::-webkit-scrollbar-track {
+  background: transparent;
+  /* fondo del riel */
+}
+
+.fila {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.fila .cont-img {
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+}
+
+.fila .cont-img img {
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-repeat: no-repeat;
+}
+
+.fila .cont-info {
+  padding: 0 20px 0 20px;
+  width: 220px;
+}
+
+.fila .cont-info h3 {
+  text-align: start;
+  font-size: 20px;
+  color: #fff;
+}
+
+.fila .cont-info h4 {
+  font-size: 15px;
+  color: #fff;
+}
+
+.fila button {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: #1c1b29;
+  color: #fff;
+  font-size: 25px;
+  margin-top: 10px;
+}
+
+.active {
+  background-color: #c4da47 !important;
+  border-radius: 50%;
+  border: none;
+  color: #000 !important;
+}
+
+.cont-lista.active2 {
+  right: 0;
+  transition: .5s;
+}
