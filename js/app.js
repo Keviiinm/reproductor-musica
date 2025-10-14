@@ -47,7 +47,7 @@ function mostrarCanciones(indice) {
     const cancion = canciones[indice]
 
     // *ponemos esto para modificar una variable en css, el fondo cambia segun la caratula de la cancion
-    fondo.style.setProperty('--fondo-caratula', `url('${cancion.caratula}')`)
+    fondo.style.setProperty('--fondo-caratula', `url(${cancion.caratula})`)
 
     contCaratula.innerHTML = `
         <img src="${cancion.caratula}"  alt="${cancion.nombre}">
