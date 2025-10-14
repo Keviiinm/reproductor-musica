@@ -13,6 +13,7 @@
 
 <body>
 
+    <!-- *CONTENDOR PRINCIPAL -->
     <div class="app">
         <div class="top-bar">
             <a href="ingresar.html"><i class="bi bi-arrow-left"></i></a>
@@ -27,15 +28,18 @@
         <h2 id="titulo-cancion" class="titulo-cancion"></h2>
         <h3 id="nombre-artista"></h3>
 
+        <!-- *CONTENEDOR DE LA BARRA DE PROGRESO -->
         <div class="progress-container">
             <input id="progress" type="range" min="0" max="100" value="" class="progress-bar">
         </div>
 
+        <!-- *CONTENEDOR DE LOS MINUTOS -->
         <div class="minutos">
             <p id="inicio"></p>
             <p id="fin"></p>
         </div>
 
+        <!-- *CONTENDOR DE LOS BOTONES NEXT/PREV/PAUSE -->
         <div class="botones">
             <button id="btn-shuffle" class="btn1"><i class="bi bi-shuffle"></i></button>
             <button id="btn-atras" class="btn2"><i class="bi bi-skip-start-fill"></i></button>
@@ -44,17 +48,20 @@
             <button id="btn-lista" class="btn1"><i class="bi bi-music-note-list"></i></button>
         </div>
 
+        <!-- *CONTENDOR DE LA LISTA DESPLEGABLE -->
         <div id="contenedor-lista" class="cont-lista">
 
+            <!-- *CONTENDOR DE BOTON REGRESO Y OPCIONES DENTRO DE LA LISTA -->
             <div class="top-bar">
                 <button id="btn-regreso"><i class="bi bi-arrow-left"></i></button>
-                <h2>My music</h2>
+                <h2>MI MUSICA</h2>
                 <button><i class="bi bi-three-dots"></i></button>
             </div>
 
+            <!-- *CONTENEDOR DE LA LISTA COMO TAL DE LAS CANCIONES -->
             <div id="contenedor-canciones" class="cont-canciones">
-
             </div>
+            
         </div>
     </div>
 
